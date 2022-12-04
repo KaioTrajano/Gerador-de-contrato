@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/95442199ab.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+    
+</head>
+
+<script>
+    let conteudoteste = document.getElementById("conteudodeteste")
+    function Export2Word(element, filename = ''){
+    var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    var postHtml = "<body><html>";
+    var html = preHtml+document.getElementById("contrato").innerHTML+postHtml;
+
+    var blob = new Blob(['\ufeff', html], {
+        type: 'application/msword'
+    });
+    
+    // Specify link url
+    var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+    
+    // Specify file name
+    filename = filename?filename+'.doc':'document.doc';
+    
+    // Create download link element
+    var downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob ){
+        navigator.msSaveOrOpenBlob(blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = url;
+        
+        // Setting the file name
+        downloadLink.download = filename;
+        
+        //triggering the function
+        downloadLink.click();
+    }
+    
+    document.body.removeChild(downloadLink);
+}
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+<style>
+
+
+</style>
+
+
+<body>
+
+
+
+<div class="sidebar">
+<ul>
+    <div class="closebar"><i class="fa-solid fa-caret-left"></i></div>
+    <li class="comercialsection"><i class="fa-regular fa-file"></i>Comercial</li>
+    <li class="eccomercesection"><i class="fa-regular fa-file-lines"></i> Ecommerce</li>
+    <li style="visibility: hidden;" class="institucionalsection"><i class="fa-regular fa-file-image"></i></i>Institucional</li>
+</ul>
+</div>
+
+
+<form id="form">
+    <h2 class="contracttitle">Comercial</h2>
+    <h2></h2>
+<div class="inputdiv">
+    <label>Contratante</label><input id="contratanteinput">
+</div>
+<div class="inputdiv">
+    <label>CNPJ</label><input id="cnpjinput">
+</div>
+<div class="inputdiv"><label>Representnte</label><input id="representanteinput"></div>
+<div class="inputdiv"><label>CEP</label><input id="cepinput"></div>
+<div class="inputdiv"><label>Rua</label><input id="ruainput"></div>
+<div class="inputdiv"><label>Número</label><input id="numinput"></div>
+<div class="inputdiv"><label>Bairro</label><input id="bairroinput"></div>
+<div class="inputdiv"><label>Cidade</label><input id="cidadeinput"></div>
+<div class="inputdiv"><label>Estado</label><input id="estadoinput"></div>
+<div class="inputdiv"><label>RG</label><input id="rginput"></div>
+<div class="inputdiv"><label>CPF</label><input id="cpfinput"></div>
+<div class="inputdiv"><label>Inicio do contrato</label><input type="date" value="20-06-2022" id="datainicialinput"></div>
+<div class="inputdiv"><label>Fim do contrato</label><input type="date" value="18/08/2000" id="datafinalinput"></div>
+<div class="inputdiv"><label>Valor do contrato</label><input type="number" id="valorcontratoinput"></div>
+<div class="inputdiv">
+    <label >Forma de pagamento</label>
+<select id="selecionarformadepagamento" form="carform">
+    <option value="cartão de crédito"> &#x1F4B3; Cartão de crédito</option>
+  <option value="pix">	&#128241; PIX</option>
+  <option value="transferencia bancaria">🏦Transferencia bancaria</option>
+  </select>
+  
+ 
+</div>
+
+<button type="button" id="gerar" onclick="enviar()">GERAR CONTRATO <i class="fa-solid fa-file-pdf"></i></button>
+
+
+
+
+</form>
+
+
+<div class="conteudo" id="contrato" style="width: 600px;">
+
+<div style="">
+  
+<u><h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h1></u>
+<p>
+
+<b>CONTRATANTE: <label id="contratante">CONTRATANTE</label></b>, pessoa jurídica de direito privado, 
+<label class="variavelcnpj">devidamente inscrita no CNPJ sob nº <b><label id="cnpj"></label></b></label>, com sede na <label id="rua"></label>, N°<label id="num"></label>, <label id="bairro"></label>, 
+<label id="cidade"></label>, CEP: <label id="cep"></label>, neste ato, representada legalmente pelo (a) <label id="representante"></label>, 
+brasileiro(a), empresário(a), portador(a) da cédula de identidade R.G. nº <label id="rg"></label><label class="variavelcpf">, inscrito(a) 
+no CPF nº <label id="cpf"></label></label>.</p><br>
+
+<b>CONTRATADO: DIGITAL NERD EIRELI</b>, pessoa jurídica de direito privado, devidamente inscrita no CNPJ sob nº <b>37.085.328/0001-68</b>, com sede na Rua Sizina Azevedo Schrepel, 351, Jardim Piratininga, Sorocaba/SP, CEP: 18.016- 150, neste ato, representada legalmente por seu sócio administrador <b>Christiano Yoshito Miyamoto</b>, brasileiro, empresário, portador da cédula de identidade R.G. nº 27.109.412, inscrito no CPF/MF sob nº 320.205.728-69.
+As partes supra qualificadas celebram entre si, o presente contrato, mediante as cláusulas e disposições a seguir:
+<br><br>
+
+<b>CLÁUSULA PRIMEIRA: DA PRESTAÇÃO DE SERVIÇOS</b>
+<br><br>
+<label class="clausulaprimeiravariavel">1º -  É objeto do presente contrato a prestação de serviços por parte da <b>CONTRATADA</b> à <b>CONTRATANTE</b>, sobre as seguintes matérias:</label><br><br>
+<label class="variavelitemA">(a) O desenvolvimento e a construção de 01 (um) site comercial para a <b>CONTRATANTE</b>;</label>
+<br><br>
+(b)	A criação de textos originais, com técnicas adequadas de SEO (Search Engine Optimization), de acordo com  os temas pré-definidos pela <b>CONTRATANTE</b>;
+<br><br>
+(c)	A escolha de imagens de domínio público quando não recebido material enviado pela <b>CONTRATANTE</b> para uso no desenvolvimento do projeto fica sob responsabilidade da <b>CONTRATADA</b>;
+<br><br>
+<label class="variavelitemD">(d) Características e Recursos do Site Comercial: Site otimizado para celulares, botões do WhatsApp, Integrado com redes sociais (Facebook e Instagram), banner principal personalizado falando do produto ou serviço, Sobre a Empresa (História) e demonstração dos serviços ou produtos da sua empresa.</label>
+<br><br>
+<label class="itemE"></label>
+<label class="itemF"></label>
+
+
+<b>CLÁUSULA SEGUNDA: DOMÍNIO, HOSPEDAGEM DO SITE E LOGOMARCA</b>
+<br><br>
+1º - 	A <b>CONTRATANTE</b> tem como obrigação realizar a aquisição do domínio caso não possua o mesmo, essa aquisição pode ser delegada para a <b>CONTRATADA</b> onde o valor da aquisição será cobrado a parte do valor deste contrato.<br><br>
+2º - 	A <b>CONTRATANTE</b> tem como obrigação realizar a aquisição do servidor de hospedagem caso não possua, os arquivos serão armazenados nessa hospedagem, assim o site estará disponível para acesso online, essa aquisição pode ser delegada para a <b>CONTRATADA</b> onde o valor da aquisição será cobrado a parte do valor deste contrato.<br><br>
+3º - 	A <b>CONTRATANTE</b> tem como obrigação realizar o envio da logomarca para adicionar <label class="tipodocontrato">ao website</label>, caso a <b>CONTRATANTE</b> não possua poderá ser realizado um orçamento separado desse contrato para a criação do mesmo.
+<br><br>
+
+<b>CLÁUSULA TERCEIRA: DAS CONDIÇÕES DA PRESTAÇÃO DOS SERVIÇOS</b>
+<br><br>
+<b>Item I - Obrigações da CONTRATADA</b>
+<br><br>
+1º - 	A <b>CONTRATADA</b> compromete-se a envidar todos os esforços no sentido de preservar a imagem da <b>CONTRATANTE</b> tomando os cuidados necessários em especial atenção às disposições expressas no Código de Defesa do Consumidor. A CONTRATANTE por sua vez, se compromete a fornecer elementos comprováveis sobre o(s) produto(s) e/ou serviço(s) a fim de que as criações textuais atendam os dispositivos do Código de Defesa do Consumidor e Código Brasileiro de Autorregulamentação Publicitária.<br><br>
+2º - 	Constitui objeto deste contrato a prestação de serviços pela <b>CONTRATADA</b> atinentes à comunicação da <b>CONTRATANTE</b> com seu público, em todas as demandas características de um projeto integrado de comunicação, compreendendo os serviços dispostos neste contrato além de outros que constituam seu desdobramento natural ou que lhes sejam complementares;<br><br>
+3º - 	É de responsabilidade da <b>CONTRATADA</b> o estudo do conceito, ideia, marca, produto ou serviço a difundir, incluindo a identificação e a análise de suas vantagens e desvantagens absolutas e relativas aos seus públicos e, quando for o caso, ao seu mercado e à sua concorrência;<br><br>
+<b>Item II - Obrigações da <b>CONTRATANTE</b></b>
+<br><br>
+1º - 	Quando necessário, a <b>CONTRATANTE</b> se compromete a dar informações e elementos necessários ao início e ao desenvolvimento do projeto, em suporte digital dentro de um período de tempo máximo de 24h (vinte e quatro horas) para evitar atrasos ou interrupções dos prazos estabelecidos no cronograma;
+<br><br>
+2º - 	Fornecer ao CONTRATADO, de acordo com a periodicidade necessária, todos os textos de atualização, ideias propostas e eventuais imagens a serem veiculados nos materiais online e offline com antecedência mínima de 24h (vinte e quatro horas) úteis da data de publicação solicitada;
+<br><br>
+3º - 	Cumprir os prazos estipulados neste contrato, para pagamentos e entrega de material;
+<br><br>
+4º - 	A <b>CONTRATANTE</b> é livre para sugerir todo e qualquer conteúdo informativo de suas páginas, sendo ela integralmente responsável pelos efeitos provenientes destas informações, respondendo civil e criminalmente por atos contrários à lei, propaganda enganosa, atos obscenos e violação de direitos autorais.
+<br><br>
+
+<b>CLÁUSULA QUARTA: PRAZO</b>
+<br><br>
+Parágrafo único. O início da prestação do serviço e do contrato aqui disposto se dará a partir do dia <label id="datainicial"></label> e prescreverá dentro de <label class="diasuteis">10</label> dias úteis, tendo sua validade anulada a partir do dia <label id="datafinal"></label>.
+<br><br>
+
+<b>CLÁUSULA QUINTA: TRATAMENTO DE DADOS</b>
+<br><br>
+1º -	As PARTES declaram-se cientes dos direitos, obrigações e penalidades aplicáveis constantes da Lei Geral de Proteção de Dados Pessoais (Lei 13.709/2018) (“LGPD”), e obrigam-se a adotar todas as medidas para garantir, por si, seu pessoal, colaboradores, empregados e subcontratados que utilizem os Dados Protegidos na extensão autorizada na referida LGPD, e cumprir as disposições da LGPD. Os representantes legais das PARTES, neste ato signatário deste contrato, consentem com a coleta de seus dados pessoais para serem utilizados nos limites deste contrato.
+<br><br>
+2º -	Para cumprimento do escopo do contrato de prestação de serviços firmado, caso haja necessidade de coleta de informações com inserção de dados pessoais ou sensíveis, as PARTES deverão realizar o tratamento de dados pessoais, com base nas hipóteses dos arts. 7o e/ou 11 da Lei 13.709/2018:<br><br>
+a) Garantir que o tratamento seja limitado às atividades necessárias ao atingimento das finalidades de execução do contrato e do serviço contratado, e utilizá-lo, quando seja o caso, em cumprimento de obrigação legal ou regulatória, no exercício regular de direito, por determinação judicial ou por requisição da ANPD;<br><br>
+b) Cooperar com a outra parte no cumprimento das obrigações referentes ao exercício dos direitos dos Titulares previstos na LGPD e nas Leis e Regulamentos de Proteção de Dados em vigor e também no atendimento de requisições e determinações do Poder Judiciário, Ministério Público, Órgãos de controle administrativo;<br><br>
+c) Notificar a outra parte sobre qualquer possível risco de Incidente de Segurança ou de descumprimento com quaisquer Leis e Regulamentos de Proteção de Dados de que venha a ter conhecimento ou suspeita.
+<br><br>
+
+<b>CLÁUSULA SEXTA: RESCISÃO DE CONTRATO</b>
+<br><br>
+<label class="recisaodecontrato">1º -	O <b>CONTRATANTE</b>, bem como a <b>CONTRATADA</b>, poderá rescindir o presente contrato de pleno direito, cabendo a cobrança de multa contratual no valor de 50% (Cinquenta por cento) sobre o valor do saldo devedor, desde que não tenha finalizado o período de vigência do desenvolvimento do Site.</label>
+<br><br>
+<b>CLÁUSULA SÉTIMA: ALTERAÇÃO DO PROJETO</b>
+<br><br>
+<label class="alteracaodoprojeto">Parágrafo único. Após o projeto ser enviado para correções textuais, a <b>CONTRATANTE</b> não poderá solicitar  alterações. Caso haja correções futuras será  cobrado o valor de R$ 100,00 (cem reais) por hora para o desenvolvimento.
+</label><br><br>
+
+<b>CLÁUSULA OITAVA: DISPOSIÇÕES GERAIS</b>
+<br><br>
+
+1º -	A <b>CONTRATADA</b> poderá transferir ou delegar as atribuições e responsabilidades que assume por força deste contrato a terceiros sob sua responsabilidade;
+<br><br>
+2º -	A <b>CONTRATANTE</b> fica isenta de toda e qualquer responsabilidade pelo não cumprimento da <b>CONTRATADA</b> de determinações administrativas e/ou legais relativas à execução do objeto do presente instrumento;
+<br><br>
+3º -	Os signatários do presente contrato asseguram e afirmam que são os representantes legais competentes para assumir em nome das partes as obrigações descritas neste contrato e representar de forma efetiva seus interesses;
+<br><br>
+4º - 	As partes são contratantes totalmente independentes, sendo cada uma inteiramente  responsável  por  seus  atos, obrigações e conteúdo das informações prestadas, em toda e qualquer circunstância, visto que o presente instrumento não cria vínculo empregatício e nem de representação comercial entre elas, e nenhuma delas poderá declarar que possui qualquer autoridade para assumir ou criar qualquer obrigação, expressa ou implícita, em nome da outra, e nem representá- la sob nenhum pretexto e em nenhuma situação;
+<br><br>
+5º -  	O não exercício por qualquer das partes de direitos ou faculdades que lhe assistam em decorrência do presente contrato, ou a tolerância com o atraso no cumprimento das obrigações da outra parte, não afetará aqueles direitos ou faculdades, os quais poderão ser exercidos a qualquer tempo, a exclusivo critério do interessado, não alterando as condições neste instrumento estipuladas;
+<br><br>
+6º - 	A impossibilidade de prestação do serviço causada por incorreção em informação fornecida pela <b>CONTRATANTE</b> ou por omissão no provimento de informação essencial à prestação, não caracteriza descumprimento de obrigação contratual isentando-o de toda e qualquer responsabilidade, ao tempo em que configuraram o não cumprimento de obrigação por parte da <b>CONTRATANTE</b>.
+<br><br>
+7º - 	Fica eleito o foro da Comarca de Sorocaba/SP para decidir qualquer litígio decorrente do presente instrumento.
+<br><br>
+8º - 	Aplicam-se ao presente contrato, naquilo que couber, as disposições da Lei 4680/65, dos Decretos nº 57.690/66, com as alterações introduzidas pelo 4563/02, da Lei 9.610/98 (Lei de Direitos Autorais), as Normas Padrão da Atividade Publicitária e do Código de Ética dos Profissionais de Propaganda.
+<br><br>
+
+<b>CLÁUSULA NONA: VALORES E FORMAS DE PAGAMENTO:</b>
+<br><br>
+1º - 	Combinam as PARTES, para remuneração dos serviços descritos na cláusula primeira, o pagamento da quantia de R$ <b><label id="valorcontrato"></label></b>(<b><label id="valorextenso"></label></b>) pago via <label id="formadepagamento"></label>.
+<br><br>
+2º - 	Os pagamentos se darão através de <label id="formadepagamento2"></label> para a conta de titularidade do CONTRATADO junto ao Banco do Brasil (001), agência 3310-03, conta 46140-7, titular Digital Nerd Eireli, CNPJ 37.085.328/0001-68<b><label id="numeropix">, PIX digitalnerd@digitalnerd.com.br</label></b>.
+<br><br>
+3º - 	A <b>CONTRATANTE</b> deverá estar ciente de que o <b>CONTRATADO</b> somente realizará os itens desejados pelo mesmo, que constarem no contrato. Qualquer pedido adicional será cobrado separadamente do documento, mediante a prévia formulação de orçamento e aceite das partes.
+<br><br>
+Justo e acordado o presente instrumento de documentação, <b>CONTRATANTE</b> e <b>CONTRATADA</b> assinam o presente instrumento em 02 (duas) vias de igual teor.
+<br><br>
+<b>Sorocaba, <label class="dia"></label> de <label class="mes"></label> de 2022</b><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<div class="contratadobox">
+    <h2>CONTRATADA</h2>
+    <div class="contratadoassinatura">
+        CHRISTIANO  MIYAMOTO – DIRETOR EXECUTIVO
+        DIGITAL NERD EIRELI
+        CNPJ: 37.085.328/0001-68    
+    </div>
+    </div>
+    
+    <div class="contratantebox">
+        <h2>CONTRATANTE</h2>
+        <div class="contratadoassinatura">
+            <label id="nomecontratado"></label><br>
+           
+            <label id="cnpjdocontratado"></label><br>   
+        </div>
+        </div>
+
+</div>
+</div>
+
+
+<div id="resultado">
+
+
+</div>
+
+
+
+    
+
+
+<div class="hideradio">
+<input id="comercialcheck" type="radio">
+<input id="eccomercecheck" type="radio">
+<input id="institucionalcheck" type="radio">
+<button onclick="Export2Word(contrato)"></button>
+</div>
+
+
+
+
+</body>
+
+<script src="/script.js">
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</html>
