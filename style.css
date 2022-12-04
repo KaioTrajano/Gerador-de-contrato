@@ -1,0 +1,341 @@
+.teste{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+}
+
+    *{
+        font-family: Arial,sans-serif;
+    }
+
+    body{
+        background-color: rgb(238, 249, 255);
+    }
+
+    h1{
+        font-weight: 600;
+        
+        
+    }
+
+.conteudo{
+    font-family: Arial, sans-serif;
+    display: none;
+    
+}
+
+    .conteudo, #resultado{
+        font-family: Arial,sans-serif;
+       
+        
+        padding: 15px;
+        border-radius: 5px;
+        text-align: justify;
+        line-height: 25px;
+        font-size: 15px;
+    }
+
+    .conteudo, #resultado h1{
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .conteudo, #resultado b{
+        font-size: 15px;
+    }
+
+.contratadoassinatura{
+    border-top: 1px solid black;
+    padding-top: 3px;
+    margin-top: 100px;
+}
+
+.contratadobox, .contratantebox{
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+h2{
+    font-size: 18px;
+}
+
+.contratantebox{
+    margin-top: 150px !important;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 500px;
+    box-shadow: 0 18px 100px 4px rgb(0 0 0 / 15%);
+    margin: auto;
+    padding: 5px 20px;
+    
+    background-color: white;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+select{
+    padding: 5px;
+}
+
+form input{
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 15px;
+   border:none;
+   
+
+   border-bottom: 1px solid rgba(167, 167, 167, 0.466);
+   
+   margin-top: 5px;
+   
+   
+   
+   
+}
+
+form input:focus{
+    outline: none;
+    border-bottom: 1px solid rgb(32, 73, 255);
+    transition: .5s;
+}
+
+form label{
+    font-weight: 500;
+    color: rgb(44, 44, 44);
+    font-size: 12px;
+
+}
+
+.inputdiv{
+width: 80%;
+}
+
+#gerar{
+    margin-top: 20px;
+    background-color: rgb(6, 106, 255);
+    box-shadow: 0 0.5rem 1.125rem -0.5rem rgb(6 106 255 / 90%);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 15px 10px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+    
+}
+
+#gerar i{
+    font-size: 21px;
+    margin-left: 5px;
+   
+}
+
+#gerar:hover{
+    background-color: rgb(4, 84, 204);
+    box-shadow: unset;
+}
+
+.entrada {
+    animation: entrada .5s ease-in;
+}
+
+.saida {
+    animation: entrada2 .5s ease-in;
+}
+
+
+.saida2 {
+    animation: entrada3 .5s ease-in;
+}
+
+.minifybar{
+  animation: minifybar .5s forwards;
+}
+
+.expandbar{
+  animation: expandbar .5s forwards;
+}
+
+@keyframes expandbar {
+    from {width: 45px; }
+    to {width: 180px; }
+    
+  
+  
+}
+
+@keyframes minifybar {
+    from {width: 180px; }
+    to {width: 45px; }
+    
+  
+  
+}
+
+
+
+@keyframes entrada {
+    0% {margin-left: 0%; }
+    50% {margin-left: -100%; }
+    100% {margin-left: 0%; }
+  
+  
+}
+
+@keyframes entrada2 {
+    0% {margin-left: 0%; }
+    50% {margin-left: -100%; }
+    100% {margin-left: 0%; }
+ 
+}
+
+@keyframes entrada3 {
+    0% {margin-left: 0%; }
+    50% {margin-left: -100%; }
+    100% {margin-left: 0%; }
+ 
+}
+
+
+
+
+.sidebar{
+    position: fixed;
+    background: white;
+    width: 180px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    box-shadow: 0 18px 20px 4px rgb(0 0 0 / 15%);
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+    z-index: 999 ;
+    border-radius: 10px;
+    overflow: hidden;
+  
+   
+
+   
+}
+
+
+.sidebar ul{
+    padding: 0;
+    
+}
+
+
+.sidebar ul li{
+    cursor: pointer;
+    list-style: none;
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    color: gray;
+    padding: 15px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    
+
+
+}
+
+.sidebar ul li i{
+    padding-right: 15px;
+}
+
+.sidebar ul li:hover{
+    background: rgb(12, 104, 243);
+    color: white;
+    transition: .3s;
+    
+
+}
+
+.active{
+    background: rgb(12, 104, 243);
+    color: white !important;
+    transition: .3s;
+    
+}
+
+.desactive{
+    background: rgb(255, 255, 255);
+    color: grey;
+    transition: .3s;
+}
+
+.sidebar i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.sidebar ul li:focus{
+    background: rgb(12, 243, 62);
+}
+
+form h2{
+    font-size: 30px;
+}
+
+
+ select{
+    max-height: calc(1.2em + 24px);
+    height: calc(1.2em + 24px);
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+select option{
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.eccomerceconteudo{
+display: none;
+}
+
+.closebar{
+    background-color:rgb(12, 104, 243); ;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    display: flex;
+    top: 10px;
+    right: -5px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.closebar i{
+    margin-left: 10px;
+}
+
+.hideradio{
+    display: none;
+}
