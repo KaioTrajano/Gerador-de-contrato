@@ -118,6 +118,26 @@ closebar.addEventListener("click", () =>{
     
 })
 
+let formadepagamento3 = document.getElementById("selecionarformadepagamento")
+let quantidadedeparcelas = document.getElementById("quantidadeparcelas")
+let parcelas = document.querySelectorAll(".parcelas")
+
+           
+formadepagamento3.addEventListener("click", () =>{
+
+    if(formadepagamento3.value == "cartão de crédito"){
+        quantidadedeparcelas.style.display = "block"
+       
+
+     
+        }else{
+            quantidadedeparcelas.style.display = "none"
+        }
+
+
+});
+
+
 
 let comercialsection = document.querySelector(".comercialsection")
 let institucionalsection = document.querySelector(".institucionalsection")
@@ -224,7 +244,14 @@ let contrato2 = document.getElementById("contrato2")
 
 
 gerar.addEventListener("click", () =>{
+   
     
+if(formadepagamento3.value == "cartão de crédito"){
+    for(i=0;i<=parcelas.length-1;i++){
+        parcelas[i].innerHTML = ` ${quantidadedeparcelas.value} <b>(vezes)</b> sem juros`
+    }
+    
+  }
     
     sidebar.style.display = "none"
 
