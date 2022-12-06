@@ -97,10 +97,41 @@
 <div class="inputdiv">
     <label >Forma de pagamento</label>
 <select id="selecionarformadepagamento" form="carform">
-    <option value="cartão de crédito"> &#x1F4B3; Cartão de crédito</option>
-  <option value="pix">	&#128241; PIX</option>
+    <option value="pix">	&#128241; PIX</option>
+    <option value="cartão de crédito" id="cartaodecredito"> &#x1F4B3; Cartão de crédito</option>
+
   <option value="transferencia bancaria">🏦Transferencia bancaria</option>
   </select>
+
+  <select id="quantidadeparcelas" form="parcelas">
+    <option value="parcelado em 1x" id="cartaodecredito"> &#x1F4B3;parcelado em
+        1x</option>
+        <option value="parcelado em 2x" id="cartaodecredito"> &#x1F4B3;parcelado em
+            2x</option>
+            <option value="parcelado em 3x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                3x</option>
+                <option value="parcelado em 4x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                    4x</option>
+                    <option value="parcelado em 5x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                        5x</option>
+                        <option value="parcelado em 6x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                            6x</option>
+                            <option value="parcelado em 7x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                                7x</option>
+                                <option value="parcelado em 8x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                                    8x</option>
+                                    <option value="parcelado em 9x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                                        9x</option>
+                                        <option value="parcelado em 10x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                                            10x</option>
+                                            <option value="parcelado em 11x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                                                11x</option>
+                                                <option value="parcelado em 12x" id="cartaodecredito"> &#x1F4B3;parcelado em
+                                                    12x</option>
+ 
+  </select>
+  
+
   
  
 </div>
@@ -216,15 +247,15 @@ c) Notificar a outra parte sobre qualquer possível risco de Incidente de Segura
 
 <b>CLÁUSULA NONA: VALORES E FORMAS DE PAGAMENTO:</b>
 <br><br>
-1º - 	Combinam as PARTES, para remuneração dos serviços descritos na cláusula primeira, o pagamento da quantia de R$ <b><label id="valorcontrato"></label></b>(<b><label id="valorextenso"></label></b>) pago via <label id="formadepagamento"></label>.
+1º - 	Combinam as PARTES, para remuneração dos serviços descritos na cláusula primeira, o pagamento da quantia de R$ <b><label id="valorcontrato"></label></b>(<b><label id="valorextenso"></label></b>) pago via <label id="formadepagamento"></label><label class="parcelas"></label>.
 <br><br>
-2º - 	Os pagamentos se darão através de <label id="formadepagamento2"></label> para a conta de titularidade do CONTRATADO junto ao Banco do Brasil (001), agência 3310-03, conta 46140-7, titular Digital Nerd Eireli, CNPJ 37.085.328/0001-68<b><label id="numeropix">, PIX digitalnerd@digitalnerd.com.br</label></b>.
+2º - 	Os pagamentos se darão através de <label id="formadepagamento2"></label><label class="parcelas"></label> para a conta de titularidade do CONTRATADO junto ao Banco do Brasil (001), agência 3310-03, conta 46140-7, titular Digital Nerd Eireli, CNPJ 37.085.328/0001-68<b><label id="numeropix">, PIX digitalnerd@digitalnerd.com.br</label></b>.
 <br><br>
 3º - 	A <b>CONTRATANTE</b> deverá estar ciente de que o <b>CONTRATADO</b> somente realizará os itens desejados pelo mesmo, que constarem no contrato. Qualquer pedido adicional será cobrado separadamente do documento, mediante a prévia formulação de orçamento e aceite das partes.
 <br><br>
 Justo e acordado o presente instrumento de documentação, <b>CONTRATANTE</b> e <b>CONTRATADA</b> assinam o presente instrumento em 02 (duas) vias de igual teor.
 <br><br>
-<b>Sorocaba, <label class="dia"></label> de <label class="mes"></label> de 2022</b><br><br><br><br><br><br><br><br><br><br><br>
+<b>Sorocaba, <label class="dia"></label> de <label class="mes"></label> de 2022</b><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 <div class="contratadobox">
@@ -266,14 +297,18 @@ Justo e acordado o presente instrumento de documentação, <b>CONTRATANTE</b> e 
 <button onclick="Export2Word(contrato)"></button>
 </div>
 
+<div class="space">
 
+</div>
 
 
 </body>
 
+
+
 <script src="https://kaiotrajano.github.io/Gerador-de-contrato/script.js"></script>
 
-
+</script>
 
 
 
