@@ -241,9 +241,36 @@ let contrato2 = document.getElementById("contrato2")
 
 
 
+function openInNewTab(href) {
+    Object.assign(document.createElement('a'), {
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      href: href,
+    }).click();
+  }
 
+
+
+  let converttoword = document.getElementById("converttoword")
+
+  converttoword.addEventListener("click", () =>{
+    openInNewTab("https://pdf2doc.com/pt/");
+  })
 
 gerar.addEventListener("click", () =>{
+
+
+    setTimeout(() =>{
+        converttoword.style.display = "unset"
+        resultado.style.display = "none"
+    },2000)
+
+    
+
+
+    
+
+   
    
     
 if(formadepagamento3.value == "cartão de crédito"){
