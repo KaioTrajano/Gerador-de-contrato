@@ -59,11 +59,12 @@
 </style>
 
 
-<body>
+<body id="corpo">
 
 
 
-<div class="sidebar">
+<div class="sidebar" style="padding-top: 50px ; text-align: center;">
+    <img src="/logo.png" id="logo" style="width: 120px; height: 40px; position: absolute; left: 35px; transition: .4s;" >
 <ul>
     <div class="closebar"><i class="fa-solid fa-caret-left"></i></div>
     <li class="comercialsection"><i class="fa-regular fa-file"></i>Comercial</li>
@@ -77,24 +78,25 @@
     <h2 class="contracttitle">Comercial</h2>
     <h2></h2>
 <div class="inputdiv">
-    <label>Contratante</label><input id="contratanteinput">
+    <label class="fakelabel">Contratante</label><input id="contratanteinput">
+   
 </div>
 <div class="inputdiv">
-    <label>CNPJ</label><input id="cnpjinput">
+    <label class="fakelabel2">CNPJ</label><input id="cnpjinput">
 </div>
-<div class="inputdiv"><label>Representnte</label><input id="representanteinput"></div>
-<div class="inputdiv"><label>CEP</label><input id="cepinput"></div>
-<div class="inputdiv"><label>Rua</label><input id="ruainput"></div>
-<div class="inputdiv"><label>Número</label><input id="numinput"></div>
-<div class="inputdiv"><label>Bairro</label><input id="bairroinput"></div>
-<div class="inputdiv"><label>Cidade</label><input id="cidadeinput"></div>
-<div class="inputdiv"><label>Estado</label><input id="estadoinput"></div>
-<div class="inputdiv"><label>RG</label><input id="rginput"></div>
-<div class="inputdiv"><label>CPF</label><input id="cpfinput"></div>
-<div class="inputdiv"><label>Inicio do contrato</label><input type="date" value="20-06-2022" id="datainicialinput"></div>
+<div class="inputdiv"><label class="fakelabel3">Representnte</label><input id="representanteinput"></div>
+<div class="inputdiv"><label class="fakelabel4">CEP</label><input autocomplete="off" id="cepinput"></div>
+<div class="inputdiv"><label class="fakelabel5">Rua</label><input id="ruainput"></div>
+<div class="inputdiv"><label class="fakelabel6">Número</label><input id="numinput"></div>
+<div class="inputdiv"><label class="fakelabel7">Bairro</label><input id="bairroinput"></div>
+<div class="inputdiv"><label class="fakelabel8">Cidade</label><input id="cidadeinput"></div>
+<div class="inputdiv"><label class="fakelabel9">Estado</label><input id="estadoinput"></div>
+<div class="inputdiv"><label class="fakelabel10">RG</label><input id="rginput"></div>
+<div class="inputdiv"><label class="fakelabel11">CPF</label><input id="cpfinput"></div>
+<div class="inputdiv"><label >Inicio do contrato</label><input type="date" value="20-06-2022" id="datainicialinput"></div>
 <div class="inputdiv"><label>Fim do contrato</label><input type="date" value="18/08/2000" id="datafinalinput"></div>
-<div class="inputdiv"><label>Valor do contrato</label><input type="number" id="valorcontratoinput"></div>
-<div class="inputdiv">
+<div class="inputdiv"><label class="fakelabel12">Valor do contrato</label><input type="number" id="valorcontratoinput"></div>
+<div class="inputdiv" id="pagamentoid">
     <label >Forma de pagamento</label>
 <select id="selecionarformadepagamento" form="carform">
     <option value="pix">	&#128241; PIX</option>
@@ -146,9 +148,11 @@
 
 <div class="conteudo" id="contrato" style="width: 600px;">
 
-<div style="">
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-align: justify;
+text-justify: distribute;
+text-align-last: left; word-spacing:-2px; line-height: 1.5em;">
   
-<u><h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h1></u>
+<u><h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 20px;">CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h1></u>
 <p>
 
 <b>CONTRATANTE: <label id="contratante">CONTRATANTE</label></b>, pessoa jurídica de direito privado, 
@@ -161,7 +165,7 @@ no CPF nº <label id="cpf"></label></label>.</p><br>
 As partes supra qualificadas celebram entre si, o presente contrato, mediante as cláusulas e disposições a seguir:
 <br><br>
 
-<b>CLÁUSULA PRIMEIRA: DA PRESTAÇÃO DE SERVIÇOS</b>
+<b >CLÁUSULA PRIMEIRA: DA PRESTAÇÃO DE SERVIÇOS</b>
 <br><br>
 <label class="clausulaprimeiravariavel">1º -  É objeto do presente contrato a prestação de serviços por parte da <b>CONTRATADA</b> à <b>CONTRATANTE</b>, sobre as seguintes matérias:</label><br><br>
 <label class="variavelitemA">(a) O desenvolvimento e a construção de 01 (um) site comercial para a <b>CONTRATANTE</b>;</label>
@@ -258,18 +262,20 @@ Justo e acordado o presente instrumento de documentação, <b>CONTRATANTE</b> e 
 <b>Sorocaba, <label class="dia"></label> de <label class="mes"></label> de 2022</b><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-<div class="contratadobox">
-    <h2>CONTRATADA</h2>
-    <div class="contratadoassinatura">
-        CHRISTIANO  MIYAMOTO – DIRETOR EXECUTIVO
-        DIGITAL NERD EIRELI
+<div class="contratadobox" style="">
+    <h2 style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: center; margin-bottom: 80px;">CONTRATADA</h2>
+    <div class="contratadoassinatura" style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1px;">
+        <hr style="width:70%; color: black;">
+        CHRISTIANO  MIYAMOTO – DIRETOR EXECUTIVO<br>
+        DIGITAL NERD EIRELI<br>
         CNPJ: 37.085.328/0001-68    
     </div>
     </div>
     
-    <div class="contratantebox">
-        <h2>CONTRATANTE</h2>
-        <div class="contratadoassinatura">
+    <div class="contratantebox" style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 16px; margin-top: 100px;">
+        <h2 style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: center; margin-bottom: 80px">CONTRATANTE</h2>
+        <div class="contratadoassinatura" style="text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1px;">
+            <hr style="width:70%;" color="black">
             <label id="nomecontratado"></label><br>
            
             <label id="cnpjdocontratado"></label><br>   
@@ -290,10 +296,10 @@ Justo e acordado o presente instrumento de documentação, <b>CONTRATANTE</b> e 
     
 
 
-<div class="hideradio">
-<input id="comercialcheck" type="radio">
-<input id="eccomercecheck" type="radio">
-<input id="institucionalcheck" type="radio">
+<div class="hideradio" style="display:none">
+<input style="visibility: hidden;" id="comercialcheck" type="radio">
+<input style="visibility: hidden;" id="eccomercecheck" type="radio">
+<input style="visibility: hidden;" id="institucionalcheck" type="radio">
 <button onclick="Export2Word(contrato)"></button>
 </div>
 
@@ -301,7 +307,10 @@ Justo e acordado o presente instrumento de documentação, <b>CONTRATANTE</b> e 
 
 </div>
 
-<button class="gerar" id="converttoword">Converter para Word</button>
+
+<div id="agradecimento">
+    
+</div>
 
 </body>
 
