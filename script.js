@@ -44,7 +44,7 @@ let form = document.getElementById("form")
 
 form.style.display = "none";
 setTimeout(() =>{
-    window.print()
+    //window.print()
 },200)
 
     }
@@ -97,6 +97,7 @@ arr.map((item) =>{
     })
 })
 
+let logo = document.getElementById("logo")
 let closebar = document.querySelector(".closebar")
 sidebar.classList.add("expandbar")
 closebar.addEventListener("click", () =>{
@@ -105,11 +106,13 @@ closebar.addEventListener("click", () =>{
         sidebar.classList.remove("expandbar")
         sidebar.classList.add("minifybar")
         closebar.innerHTML = '<i class="fa-solid fa-caret-right"></i>'
+        logo.style.opacity = "0"
         
     } else if(sidebar.className == "sidebar minifybar"){
         sidebar.classList.add("expandbar")
         sidebar.classList.remove("minifybar")
         closebar.innerHTML = '<i class="fa-solid fa-caret-left"></i>'
+        logo.style.opacity = "1"
         
         
         
@@ -251,21 +254,59 @@ function openInNewTab(href) {
 
 
 
-  let converttoword = document.getElementById("converttoword")
 
-  converttoword.addEventListener("click", () =>{
-    openInNewTab("https://pdf2doc.com/pt/");
-  })
 
 gerar.addEventListener("click", () =>{
+    
+  resultado.style.visibility = "hidden"
+
+
+
+    contrato.style.display = "none"
+    
+
+    setTimeout(() =>{
+
+        form.remove()
+
+        var html = document.documentElement.outerHTML;
+
+        // Cria um novo objeto Blob com o conteúdo HTML
+        var blob = new Blob(['\ufeff', html], {
+          type: 'application/msword'
+        });
+        
+        // Cria um link para baixar o arquivo
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Nome do seu arquivo.doc';
+        
+        // Adiciona o link à página e clica nele para iniciar o download
+        document.body.appendChild(link);
+        
+        
+        // Remove o link da página
+        document.body.removeChild(link);
+        
+        
+        link.click();
+        
+    },0)
 
 
     setTimeout(() =>{
-        converttoword.style.display = "unset"
-        resultado.style.display = "none"
-    },2000)
+        let agradecimento = document.getElementById("agradecimento")
+        agradecimento.innerHTML = `<img src="/gif.gif">
+        <h2>CONTRATO GERADO COM SUCESSO!</h2>
+        <button onclick="voltar()" class="voltar"></i>GERAR NOVO CONTRATO<i class="fa-solid fa-file-contract"></i></button>`
+
+        let corpo = document.getElementById("corpo")   
+        agradecimento.style.display = "unset"
+
+    },500)
 
     
+   
 
 
     
@@ -376,3 +417,431 @@ function gerarPdf(){
 doc.save('a4.pdf')
 }
 
+
+
+function voltar(){
+    location.reload()
+}
+
+
+
+
+
+let inputdiv = document.querySelector(".inputdiv")
+
+
+
+
+
+
+contratanteinput.addEventListener("click", () =>{
+
+let fakelabel = document.querySelector(".fakelabel")
+
+fakelabel.style.bottom = "110px"
+fakelabel.style.fontSize = "11px"
+fakelabel.style.transition = ".2s"
+fakelabel.style.color = "rgb(6, 106, 255)"
+
+})
+
+
+
+
+
+
+let fakelabel = document.querySelector(".fakelabel")
+
+    contratanteinput.addEventListener("blur", () =>{
+
+
+        if(contratanteinput.value == ""){
+
+
+        fakelabel.style.bottom = "79px"
+        fakelabel.style.transition = ".2s"
+        fakelabel.style.fontSize = "16px"
+        fakelabel.style.color = "grey"
+
+        }
+
+
+    } )
+   
+
+
+
+
+cnpjinput.addEventListener("click", () =>{
+
+    let fakelabel2 = document.querySelector(".fakelabel2")
+    
+    fakelabel2.style.bottom = "110px"
+    fakelabel2.style.fontSize = "11px"
+    fakelabel2.style.transition = ".2s"
+    fakelabel2.style.color = "rgb(6, 106, 255)"
+    
+    })
+    
+    
+    
+    
+ 
+    
+    let fakelabel2 = document.querySelector(".fakelabel2")
+    
+        cnpjinput.addEventListener("blur", () =>{
+    
+    
+            if(cnpjinput.value == ""){
+    
+    
+            fakelabel2.style.bottom = "79px"
+            fakelabel2.style.transition = ".2s"
+            fakelabel2.style.fontSize = "16px"
+            fakelabel2.style.color = "grey"
+    
+            }
+    
+    
+        } )
+       
+    
+        let fakelabel3 = document.querySelector(".fakelabel3")
+        representanteinput.addEventListener("click", () =>{
+
+           
+            
+            fakelabel3.style.bottom = "110px"
+            fakelabel3.style.fontSize = "11px"
+            fakelabel3.style.transition = ".2s"
+            fakelabel3.style.color = "rgb(6, 106, 255)"
+            
+            })
+            
+            
+            
+            
+         
+            
+            
+            
+                representanteinput.addEventListener("blur", () =>{
+            
+
+                    if(representanteinput.value == ""){
+            
+            
+                    fakelabel3.style.bottom = "79px"
+                    fakelabel3.style.transition = ".2s"
+                    fakelabel3.style.fontSize = "16px"
+                    fakelabel3.style.color = "grey"
+            
+                    }
+            
+            
+                } )
+
+
+                let fakelabel4 = document.querySelector(".fakelabel4")
+
+                cepinput.addEventListener("click", () =>{
+
+                    fakelabel4.style.bottom = "110px"
+                    fakelabel4.style.fontSize = "11px"
+                    fakelabel4.style.transition = ".2s"
+                    fakelabel4.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        cepinput.addEventListener("blur", () =>{
+                    
+                            if(cepinput.value != ""){
+
+
+                            fakelabel5.style.bottom = "110px"
+                            fakelabel5.style.fontSize = "11px"
+                            fakelabel5.style.transition = ".2s"
+                            fakelabel5.style.color = "rgb(6, 106, 255)"
+
+                            fakelabel7.style.bottom = "110px"
+                            fakelabel7.style.fontSize = "11px"
+                            fakelabel7.style.transition = ".2s"
+                            fakelabel7.style.color = "rgb(6, 106, 255)"
+
+                            fakelabel8.style.bottom = "110px"
+                            fakelabel8.style.fontSize = "11px"
+                            fakelabel8.style.transition = ".2s"
+                            fakelabel8.style.color = "rgb(6, 106, 255)"
+
+                            fakelabel9.style.bottom = "110px"
+                            fakelabel9.style.fontSize = "11px"
+                            fakelabel9.style.transition = ".2s"
+                            fakelabel9.style.color = "rgb(6, 106, 255)"
+                            
+                            }else if(cepinput.value == ""){
+
+                               
+                               
+                                
+                    
+                    
+                            fakelabel4.style.bottom = "79px"
+                            fakelabel4.style.transition = ".2s"
+                            fakelabel4.style.fontSize = "16px"
+                            fakelabel4.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+
+                        let fakelabel5 = document.querySelector(".fakelabel5")
+
+                        
+
+                ruainput.addEventListener("click", () =>{
+
+                    fakelabel5.style.bottom = "110px"
+                    fakelabel5.style.fontSize = "11px"
+                    fakelabel5.style.transition = ".2s"
+                    fakelabel5.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+
+                    
+                    
+                    
+                        ruainput.addEventListener("blur", () =>{
+                    
+                    
+                            if(ruainput.value == ""){
+                    
+                    
+                            fakelabel5.style.bottom = "79px"
+                            fakelabel5.style.transition = ".2s"
+                            fakelabel5.style.fontSize = "16px"
+                            fakelabel5.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+                        let fakelabel6 = document.querySelector(".fakelabel6")
+
+                numinput.addEventListener("click", () =>{
+
+                    fakelabel6.style.bottom = "110px"
+                    fakelabel6.style.fontSize = "11px"
+                    fakelabel6.style.transition = ".2s"
+                    fakelabel6.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        numinput.addEventListener("blur", () =>{
+                    
+                    
+                            if(numinput.value == ""){
+                    
+                    
+                            fakelabel6.style.bottom = "79px"
+                            fakelabel6.style.transition = ".2s"
+                            fakelabel6.style.fontSize = "16px"
+                            fakelabel6.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+                        let fakelabel7 = document.querySelector(".fakelabel7")
+
+                bairroinput.addEventListener("click", () =>{
+
+                    fakelabel7.style.bottom = "110px"
+                    fakelabel7.style.fontSize = "11px"
+                    fakelabel7.style.transition = ".2s"
+                    fakelabel7.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        bairroinput.addEventListener("blur", () =>{
+                    
+                    
+                            if(bairroinput.value == ""){
+                    
+                    
+                            fakelabel7.style.bottom = "79px"
+                            fakelabel7.style.transition = ".2s"
+                            fakelabel7.style.fontSize = "16px"
+                            fakelabel7.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+                        let fakelabel8 = document.querySelector(".fakelabel8")
+
+                cidadeinput.addEventListener("click", () =>{
+
+                    fakelabel8.style.bottom = "110px"
+                    fakelabel8.style.fontSize = "11px"
+                    fakelabel8.style.transition = ".2s"
+                    fakelabel8.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        cidadeinput.addEventListener("blur", () =>{
+                    
+                    
+                            if(cidadeinput.value == ""){
+                    
+                    
+                            fakelabel8.style.bottom = "79px"
+                            fakelabel8.style.transition = ".2s"
+                            fakelabel8.style.fontSize = "16px"
+                            fakelabel8.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+                        let estadoinput = document.getElementById("estadoinput")
+                        let fakelabel9 = document.querySelector(".fakelabel9")
+
+                estadoinput.addEventListener("click", () =>{
+
+                    fakelabel9.style.bottom = "110px"
+                    fakelabel9.style.fontSize = "11px"
+                    fakelabel9.style.transition = ".2s"
+                    fakelabel9.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        estadoinput.addEventListener("blur", () =>{
+                    
+                    
+                            if(estadoinput.value == ""){
+                    
+                    
+                            fakelabel9.style.bottom = "79px"
+                            fakelabel9.style.transition = ".2s"
+                            fakelabel9.style.fontSize = "16px"
+                            fakelabel9.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+                        let fakelabel10 = document.querySelector(".fakelabel10")
+
+                rginput.addEventListener("click", () =>{
+
+                    fakelabel10.style.bottom = "110px"
+                    fakelabel10.style.fontSize = "11px"
+                    fakelabel10.style.transition = ".2s"
+                    fakelabel10.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        rginput.addEventListener("blur", () =>{
+                    
+                    
+                            if(rginput.value == ""){
+                    
+                    
+                            fakelabel10.style.bottom = "79px"
+                            fakelabel10.style.transition = ".2s"
+                            fakelabel10.style.fontSize = "16px"
+                            fakelabel10.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+
+                        let fakelabel11 = document.querySelector(".fakelabel11")
+
+                cpfinput.addEventListener("click", () =>{
+
+                    fakelabel11.style.bottom = "110px"
+                    fakelabel11.style.fontSize = "11px"
+                    fakelabel11.style.transition = ".2s"
+                    fakelabel11.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        cpfinput.addEventListener("blur", () =>{
+                    
+                    
+                            if(cpfinput.value == ""){
+                    
+                    
+                            fakelabel11.style.bottom = "79px"
+                            fakelabel11.style.transition = ".2s"
+                            fakelabel11.style.fontSize = "16px"
+                            fakelabel11.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+                        let fakelabel12 = document.querySelector(".fakelabel12")
+
+                valorcontratoinput.addEventListener("click", () =>{
+
+                    fakelabel12.style.bottom = "110px"
+                    fakelabel12.style.fontSize = "11px"
+                    fakelabel12.style.transition = ".2s"
+                    fakelabel12.style.color = "rgb(6, 106, 255)"
+                    
+                    })
+                    
+                    
+                        valorcontratoinput.addEventListener("blur", () =>{
+                    
+                    
+                            if(valorcontratoinput.value == ""){
+                    
+                    
+                            fakelabel12.style.bottom = "79px"
+                            fakelabel12.style.transition = ".2s"
+                            fakelabel12.style.fontSize = "16px"
+                            fakelabel12.style.color = "grey"
+                    
+                            }
+                    
+                    
+                        } )
+
+
+
+
+
+
+
+
+
+// Remove o link da página
