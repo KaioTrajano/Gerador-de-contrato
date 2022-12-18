@@ -296,7 +296,7 @@ gerar.addEventListener("click", () =>{
 
     setTimeout(() =>{
         let agradecimento = document.getElementById("agradecimento")
-        agradecimento.innerHTML = `<img src="/gif.gif">
+        agradecimento.innerHTML = `<img src="gif.gif">
         <h2>CONTRATO GERADO COM SUCESSO!</h2>
         <button onclick="voltar()" class="voltar"></i>GERAR NOVO CONTRATO<i class="fa-solid fa-file-contract"></i></button>`
 
